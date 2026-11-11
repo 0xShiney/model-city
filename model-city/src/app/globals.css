@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: var(--font-display);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-signal: var(--signal);
+  --color-acid: var(--acid);
+  --color-teal: var(--teal);
+  --color-sun: var(--sun);
+  --color-alarm: var(--alarm);
+  --color-sky: var(--sky);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-sidebar: var(--surface);
+  --color-sidebar-foreground: var(--ink);
+  --color-sidebar-border: var(--line);
+  --color-sidebar-accent: var(--paper);
+  --color-sidebar-accent-foreground: var(--ink);
+  --color-sidebar-ring: var(--ring);
+  --color-sidebar-primary: var(--ink);
+  --color-sidebar-primary-foreground: var(--surface);
+
+  --radius-sm: calc(var(--radius) * 0.7);
+  --radius-md: calc(var(--radius) * 0.9);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  --animate-marquee: marquee 26s linear infinite;
+  --animate-blink: caret-blink 1s steps(2) infinite;
+  --animate-rise: rise 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(6px) scale(0.99);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+:root {
+  --paper: #ece7dc;
+  --surface: #f7f3ea;
+  --ink: #17150f;
+  --ink-muted: #6b655a;
+  --line: #17150f;
+  --signal: #ff5a1f;
+  --acid: #c6f432;
+  --teal: #0f5c54;
+  --sun: #ffc93c;
+  --alarm: #e5352b;
+  --sky: #3fa7d6;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--signal);
+  --primary-foreground: #fff8f2;
+  --secondary: #e3ddcf;
+  --secondary-foreground: var(--ink);
+  --muted: #e6e0d2;
+  --muted-foreground: var(--ink-muted);
+  --accent: #e9e3d5;
+  --accent-foreground: var(--ink);
+  --destructive: var(--alarm);
+  --destructive-foreground: #fff5f4;
+  --border: var(--line);
+  --input: #d9d2c2;
+  --ring: var(--teal);
+  --success: var(--acid);
+  --success-foreground: #1d2a06;
+  --warning: var(--sun);
+  --warning-foreground: #3a2b00;
+  --info: var(--sky);
+  --info-foreground: #04283a;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --paper: #12140f;
+  --surface: #1b1e17;
+  --ink: #ede8da;
+  --ink-muted: #9a9486;
+  --line: color-mix(in srgb, #ede8da 70%, transparent);
+  --signal: #ff6a33;
+  --acid: #c6f432;
+  --teal: #3f9c8f;
+  --sun: #ffc93c;
+  --alarm: #ff5a4f;
+  --sky: #6cc0e6;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--surface);
+  --popover-foreground: var(--ink);
+  --primary: var(--signal);
+  --primary-foreground: #1a0d06;
+  --secondary: #24281f;
+  --secondary-foreground: var(--ink);
+  --muted: #23271e;
+  --muted-foreground: var(--ink-muted);
+  --accent: #262b21;
+  --accent-foreground: var(--ink);
+  --destructive: var(--alarm);
+  --destructive-foreground: #1a0605;
+  --border: var(--line);
+  --input: #31362a;
+  --ring: var(--acid);
+  --success: var(--acid);
+  --success-foreground: #101703;
+  --warning: var(--sun);
+  --warning-foreground: #1c1500;
+  --info: var(--sky);
+  --info-foreground: #041c26;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-mono), ui-monospace, monospace;
+  }
+  ::selection {
+    background: var(--signal);
+    color: #fff8f2;
+  }
+  :focus-visible {
+    outline: 2px solid var(--teal);
+    outline-offset: 2px;
+  }
+}
+
+@utility grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+@utility hard-shadow {
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+@utility hard-shadow-sm {
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+@utility hairline {
+  border: 1.5px solid var(--line);
+}
+
+@utility label-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.desktop-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.window-shell {
+  border: 2px solid var(--line);
+  background: var(--surface);
+  box-shadow: 6px 6px 0 color-mix(in srgb, var(--ink) 88%, transparent);
+}
+
+.window-titlebar {
+  background: color-mix(in srgb, var(--surface) 60%, var(--paper));
+  border-bottom: 2px solid var(--line);
+}
+
+.stamp {
+  border: 2px solid currentColor;
+  transform: rotate(-6deg);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: var(--font-mono), monospace;
+  padding: 0.15rem 0.5rem;
+}
+
+.paper-card {
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  box-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 85%, transparent);
+}
+
+.paper-card-flat {
+  border: 1.5px solid color-mix(in srgb, var(--line) 55%, transparent);
+  background: color-mix(in srgb, var(--card) 70%, var(--paper));
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink) 35%, transparent) transparent;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ink) 30%, transparent);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
